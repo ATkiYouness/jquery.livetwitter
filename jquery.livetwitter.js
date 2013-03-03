@@ -6,6 +6,9 @@
  * Licensed under the MIT license (MIT-LICENSE.txt)
  *
  * $Date: 2012/12/08$
+ * Adding French translation
+ * Youness ATki (@Atki_Youness)
+ * 
  */
 
 /*jslint browser: true, devel: true, onevar: false, immed: false, regexp: false, indent: 2 */
@@ -61,13 +64,13 @@
           entities:  false,
           service:   false,
           localization: {
-            seconds: 'seconds ago',
-            minute:  'a minute ago',
-            minutes: 'minutes ago',
-            hour:    'an hour ago',
-            hours:   'hours ago',
-            day:     'a day ago',
-            days:    'days ago'
+            seconds: 'Il y a %s secondes',
+            minute:  'Il y a %s minute',
+            minutes: 'Il y a %s minute',
+            hour:    'Il y a une heure',
+            hours:   'Il y a %s heures',
+            day:     'Il une journée',
+            days:    'Il y a %s jours'
           }
         }, options);
         // showAuthor should default to true unless mode is 'user_timeline'.
@@ -97,19 +100,19 @@
             var delta = (Date.parse(Date()) - parsedDate) / 1000;
             var r = '';
             if  (delta < 60) {
-              r = delta + " " + settings.localization.seconds;
+              r = settings.localization.seconds.replace("%s", delta);
             } else if (delta < 120) {
               r = settings.localization.minute;
             } else if (delta < (45 * 60)) {
-              r = (parseInt(delta / 60, 10)).toString() + " " + settings.localization.minutes;
+              r = settings.localization.minutes.replace("%s", (parseInt(delta / 60, 10)).toString());
             } else if (delta < (90 * 60)) {
               r = settings.localization.hour;
             } else if (delta < (24 * 60 * 60)) {
-              r = '' + (parseInt(delta / 3600, 10)).toString() + " " + settings.localization.hours;
+              r = settings.localization.hours.replace("%s", (parseInt(delta / 3600, 10)).toString());
             } else if (delta < (48 * 60 * 60)) {
               r = settings.localization.day;
             } else {
-              r = (parseInt(delta / 86400, 10)).toString() + " " + settings.localization.days;
+              r = settings.localization.days.replace("%s", (parseInt(delta / 86400, 10)).toString());
             }
             return r;
           },

@@ -3,10 +3,8 @@
 <b>Sadly, Twitter has decided we can't have nice things. The v1.0 API is being retired,
 and this plugin will cease to function March 2013.</b>
 
-{ryangiglio}[https://github.com/ryangiglio] is working on
-{jQuery Tweet Machine}[https://github.com/ryangiglio/jquery-tweetMachine],
-a spiritual successor.
-
+I added some modifications to adapt the script to french.
+Link of the original script :https://github.com/elektronaut/jquery.livetwitter
 
 = jQuery LiveTwitter
 
@@ -23,7 +21,7 @@ You'll need a container for the stream of tweets:
 
 Populating it is as simple as:
 
- $("#tweets").liveTwitter('bacon');
+ $("#tweets").liveTwitter('jquery');
 
 You can also show tweets from a user's timeline:
 
@@ -39,8 +37,8 @@ You can also show tweets from a user's timeline:
 
 Changing the query or options is pretty easy, just call liveTwitter again with the new parameters:
 
- $("#tweets").liveTwitter('salad');
- $("#tweets").liveTwitter('celery', {limit: 25});
+ $("#tweets").liveTwitter('html5');
+ $("#tweets").liveTwitter('angularjs', {limit: 25});
  $("#tweets").liveTwitter(false, {limit: 25});
 
 == Options
@@ -77,7 +75,7 @@ See the Twitter Search API for info on how geocode and lang works: http://search
 The timestamp text is in english by default, but can be localized. Here's
 an example for Norwegian:
 
- $('#tweets').liveTwitter('bacon', {localization: {
+ $('#tweets').liveTwitter('jquery', {localization: {
    seconds: 'sekunder siden',
    minute:  'ett minutt siden',
    minutes: 'minutter siden',
@@ -113,7 +111,7 @@ If you want to clear the tweets on changing query, you can do this:
 
 You can filter tweets by providing a function:
 
- $('#tweets').liveTwitter('bacon', {limit: 10, rpp: 100, filter: function(tweet){
+ $('#tweets').liveTwitter('jquery', {limit: 10, rpp: 100, filter: function(tweet){
    return ($.inArray(tweet.iso_language_code, ['no', 'sv']) > -1); // Show only norwegian and swedish tweets
  }});
 
@@ -121,13 +119,13 @@ You can filter tweets by providing a function:
 
 If you want to apply behavior when new tweets are loaded, you can pass a callback function:
 
- $('#tweets').liveTwitter('bacon', {}, function(container, newCount){
+ $('#tweets').liveTwitter('jquery', {}, function(container, newCount){
    alert(newCount + ' new tweets loaded!');
  });
 
 ..or if events are more your style:
 
- $('#tweets').liveTwitter('bacon').bind('tweets', function(){
+ $('#tweets').liveTwitter('jquery').bind('tweets', function(){
    alert('New tweets!');
  });
 
